@@ -1,9 +1,156 @@
-.container {
-    text-align:center;
-    width:100%;
+/* Colors */
+:root {
+    --main-color: #3B2864;
+    --landscape-color: #F5C3A2;
+    --hill1: #26235D;
+    --hill2: #663571;
+    --castle-color: #9C3F7D;
+    --car-color: #26235D;
+    --owl-color: var(--car-color);
   }
-  svg {
-    width:600px;
-    display:block;
-    margin:100px auto;
+  
+  /* Global reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body, #container, #landscape {
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+  }
+  
+  body {
+    overflow: hidden;
+  }
+  
+  #container, #landscape, #front-trees, #back-trees {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Illustration can be re-sized as whole */
+  #container {
+    transform: scale(1.5);
+  }
+  
+  /* Scene container */
+  #landscape {
+    position: relative;
+    width: 282px;
+    height: 358px;
+    background: var(--landscape-color);
+    background: -moz-linear-gradient(180deg, rgba(245,195,162,1) 31%, rgba(250,233,203,1) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(245,195,162,1) 31%, rgba(250,233,203,1) 100%);
+    background: linear-gradient(180deg, rgba(245,195,162,1) 31%, rgba(250,233,203,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f5c3a2",endColorstr="#fae9cb",GradientType=1);
+    -webkit-clip-path: url(#svgPath);
+    clip-path: url(#svgPath);
+  }
+  
+  #dobby, .trees, .trees svg, #front-trees, #back-trees, .hill, #castle, #car, #owl {
+    position: absolute;
+  }
+  
+  /* Two hills at the bottom of the scene */
+  .hill {
+    bottom: 0;
+    overflow: hidden;
+  }
+  
+  #hill-1, #hill-2 {
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+  
+  #hill-1 {
+    border-width: 59px 290px 0px 0;
+    border-color: transparent var(--hill1) transparent transparent;
+  }
+  
+  #hill-2 {
+    border-width: 105px 0 0px 384px;
+    border-color: transparent transparent transparent var(--hill2);
+  }
+  
+  /* Trees */
+  .trees {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(-1px 1px 1px rgb(0 0 0 / 0.3));
+  }
+  
+  #front-trees svg {
+    fill: var(--hill1);
+    bottom: 0;
+  }
+  
+  #back-trees svg {
+    fill: var(--hill2);
+    bottom: 35px;
+  }
+  
+  /* Front trees */
+  #tree-1 {
+    width: 65px;
+    left: 49px;
+  }
+  
+  #tree-2 {
+    width: 51px;
+    left: 85px;
+  }
+  
+  #tree-3 {
+    width: 100px;
+    right: 17px;
+  }
+  
+  /* Back trees */
+  
+  #tree-4 {
+    width: 57px;
+    right: 74px;
+  }
+  
+  #tree-5 {
+    width: 42px;
+    right: 108px;
+  }
+  
+  #tree-6 {
+    width: 70px;
+    left: 41px;
+  }
+  
+  #tree-7 {
+    width: 60px;
+    left: 0;
+  }
+  
+  /* Castle */
+  #castle {
+    width: 267px;
+    fill: var(--castle-color);
+    bottom: 0;
+  }
+  
+  /* Flying car */
+  #car {
+    fill: var(--car-color);
+    width: 100px;
+    top: -7px;
+    right: 69px;
+  }
+  
+  /* Owl */
+  #owl {
+    fill: var(--owl-color);
+    width: 80px;
+    top: -22px;
+    left: 69px;
   }
